@@ -1,0 +1,13 @@
+
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const allPosts = await Astro.glob('../pages/posts/*.md');
+const pageTitle = "博客";
+---
+<BaseLayout pageTitle={pageTitle}>
+  <h1>我的 Astro 学习博客</h1>
+  <p>这是我的 Astro 学习笔记</p>
+  <ul>
+    {allPosts.map((post) => <li><a href={post.url}>{post.frontmatter.title}</a></li>)}
+  </ul>
+</BaseLayout>
